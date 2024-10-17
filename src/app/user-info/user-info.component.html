@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+      <div class="user-info__header">
+        <h2>User Information</h2>
+      </div>
+  
+      <form *ngIf="isEditing" (ngSubmit)="saveUserInfo()" class="edit-section">
+        <h3>Edit User Info</h3>
+        
+        <label for="name">Name:</label>
+        <input id="name" [(ngModel)]="editedUserInfo.name" name="name" required />
+        
+        <label for="phone">Phone:</label>
+        <input id="phone" [(ngModel)]="editedUserInfo.phone" name="phone" />
+        
+        <label for="address">Address:</label>
+        <input id="address" [(ngModel)]="editedUserInfo.address" name="address" />
+        
+        <button type="submit" class="button">Save</button>
+        <button type="button" (click)="isEditing = false" class="button">Cancel</button>
+      </form>
+    
+      <div *ngIf="!isEditing" class="user-info__details">
+        <p><strong>Name:</strong> {{ currentUser?.name }}</p>
+        <p><strong>Position:</strong> {{ currentUser?.position }}</p>
+        <p><strong>Email:</strong> {{ currentUser?.email }}</p>
+        <p><strong>Phone:</strong> {{ currentUser?.phone }}</p>
+        <p><strong>Address:</strong> {{ currentUser?.address }}</p>
+        <p><strong>Salary:</strong> {{ currentUser?.payRate }}</p>
+        
+        <button (click)="editUserInfo()" class="button">Edit</button>
+        <button *ngIf="isAdmin" class="button change-salary-button" (click)="openSalaryDialog()">Change Salary</button>
+      </div>
+
+      <!-- Salary Change Dialog -->
+      <div *ngIf="showSalaryDialog" class="dialog-overlay">
+        <div class="salary-dialog">
+          <h3>Change Salary for {{ currentUser?.name }}</h3>
+          <label for="newSalary">New Salary:</label>
+          <input type="number" [(ngModel)]="newSalary" id="newSalary" required />
+          
+          <button class="button" (click)="confirmSalaryChange()">Confirm</button>
+          <button class="button" (click)="closeSalaryDialog()">Cancel</button>
+        </div>
+      </div>
+
+      <button (click)="goBack()" class="button">Back to Dashboard</button>
+    </div>
+  </div>
+</div>

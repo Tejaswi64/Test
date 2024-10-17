@@ -1,0 +1,79 @@
+
+<div class="container">
+    <div class="screen">
+      <div class="screen__content">
+        <div class="dashboard__header">
+          <h1>Welcome, {{ currentUser?.name }}</h1>
+          <h3>Position: {{ currentUser?.position }}</h3>
+        </div>
+  
+        <div class="dashboard__actions">
+          <div class="button-container">
+            <button *ngIf="isAdmin" class="button" (click)="viewAllUsers()">List of Employees</button>
+            <button class="button" (click)="viewUserInfo()">My Information</button>
+            <button class="button" (click)="openChangePasswordModal()">Change Password</button>
+            <button routerLink = "/reactive-form" class="button" >Go to Form</button>
+            <button *ngIf="isAdmin" class="button" (click)="openAddEmployeeModal()">Add New Employee</button>
+          </div>
+        </div>
+  
+        <div class="footer">
+          <button class="button" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  
+    
+    <div class="modal" *ngIf="isModalOpen">
+      <div class="modal-content">
+        <span class="close" (click)="closeChangePasswordModal()">&times;</span>
+        <h2>Change Password</h2>
+        <form (ngSubmit)="onChangePassword()">
+          <label for="currentPassword">Current Password:</label>
+          <input type="password" id="currentPassword" [(ngModel)]="currentPassword" name="currentPassword" required />
+  
+          <label for="newPassword">New Password:</label>
+          <input type="password" id="newPassword" [(ngModel)]="newPassword" name="newPassword" required />
+  
+          <button type="submit">Change Password</button>
+        </form>
+        <div *ngIf="changePasswordError" class="error-message">{{ changePasswordError }}</div>
+        <div *ngIf="changePasswordSuccess" class="success-message">{{ changePasswordSuccess }}</div>
+      </div>
+    </div>
+  
+   
+    <div class="modal" *ngIf="isAddEmployeeModalOpen">
+      <div class="modal-content">
+        <span class="close" (click)="closeAddEmployeeModal()">&times;</span>
+        <h2>Add New Employee</h2>
+        <form (ngSubmit)="onAddEmployee()">
+          <label for="name">Name:</label>
+          <input type="text" id="name" [(ngModel)]="newEmployee.name" name="name" required />
+  
+          <label for="email">Email:</label>
+          <input type="email" id="email" [(ngModel)]="newEmployee.email" name="email" required />
+  
+          <label for="password">Password:</label>
+          <input type="password" id="password" [(ngModel)]="newEmployee.password" name="password" required />
+  
+          <label for="position">Position:</label>
+          <input type="text" id="position" [(ngModel)]="newEmployee.position" name="position" required />
+
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone" [(ngModel)]="newEmployee.phone" name="phone" required />
+            
+          <label for="address">Address:</label>
+          <input type="text" id="address" [(ngModel)]="newEmployee.address" name="address" required />
+           
+          <label for="payRate">PayRate:</label>
+          <input type="number" id="payRate" [(ngModel)]="newEmployee.payRate" name="payRate" required />
+
+          <button type="submit">Add Employee</button>
+        </form>
+        <div *ngIf="addEmployeeError" class="error-message">{{ addEmployeeError }}</div>
+        <div *ngIf="addEmployeeSuccess" class="success-message">{{ addEmployeeSuccess }}</div>
+      </div>
+    </div>
+  </div>
+

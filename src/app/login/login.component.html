@@ -1,0 +1,49 @@
+
+<div class="container">
+    <div class="screen">
+      <div class="screen__content">
+        
+        <h1 class="login-title">WB</h1> 
+  
+        <form class="login" (ngSubmit)="onLogin()">
+          <div class="login__field">
+            <i class="login__icon fas fa-user"></i>
+            <input
+              type="email"
+              [(ngModel)]="email"
+              name="email"
+              class="login__input"
+              placeholder="User name / Email"
+              required
+            />
+          </div>
+          <div class="login__field">
+            <i class="login__icon fas fa-lock"></i>
+            <input
+              type="password"
+              [(ngModel)]="password"
+              name="password"
+              class="login__input"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button class="button login__submit" type="submit">
+            <span class="button__text">Log In</span>
+            <i class="button__icon fas fa-chevron-right"></i>
+          </button>
+          <div *ngIf="loginFailed" class="error-message">Invalid credentials, please try again.</div>
+        </form>
+        <!--<div class="signup-link">
+          <h3><a routerLink="/signup">Sign Up</a></h3>
+        </div>-->
+      </div>
+      <div class="screen__background">
+        <span class="screen__background__shape screen__background__shape4"></span>
+        <span class="screen__background__shape screen__background__shape3"></span>
+        <span class="screen__background__shape screen__background__shape2"></span>
+        <span class="screen__background__shape screen__background__shape1"></span>
+      </div>
+    </div>
+  </div>
+  

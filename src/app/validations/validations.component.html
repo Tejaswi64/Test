@@ -1,0 +1,50 @@
+<form [formGroup] = "form"(ngSubmit) = "onSubmit">
+    <div> 
+        <label for = "inputField"> Input Field </label>
+        <input id = "inputField" formControlName = "inputField" placeholder="Enter Text" type = "text" />
+        <div *ngIf = "form.controls['inputField'].invalid && form.controls['inputField'.touched]">
+            <small class = "error" *ngIf = "form.controls['inputField'].errors?.['required']">Input is required</small>
+        </div>
+    </div>
+
+    <div>
+        <label for = "description"> Text area</label>
+        <input id = "description" formControlName = "description" placeholder="Enter description" rows = "5" />
+        <div *ngIf = "form.controls['description'].invalid && form.controls['description'].touched">
+            <small class = "error" *ngIf = "form.controls['description'].errors?.['required']">Description is required</small>
+        </div>
+    </div>
+
+    <div>
+        <label for = "selectedOption"> Select an option</label>
+        <select id = "selectedOption" formControlName = "selectedOption" >
+            <option value = "" disabled>Select an option</option>
+            <option *ngFor = "let option of options" [value] = "option">{{option}}</option>
+        </select>
+        <div *ngIf = "form.controls['selectedOption'].invalid && form.controls['selectedOption'].touched">
+            <small class = "error" *ngIf = "form.controls['selectedOption'].errors?.['required']">selectedOption is required</small>
+        </div>
+    </div>
+    <div>
+        <label for = "radioOption">Radio Button</label>
+        <div *ngFor="let radio of radioOptions">
+            <input type = "radio" [value]="radio" formControlName = "radioOption" id = "{{radio}}" />
+            <label for ="{{radio}}">{{radio}}</label>
+        </div>
+        <div *ngIf = "form.controls['radioOption'].invalid && form.controls['radioOption'].touched">
+            <small class = "error" *ngIf = "form.controls['radioOption'].errors?.['required']">Radio Option is required</small>
+        </div>
+    </div>
+
+    <div>
+        <label>
+        <input type = 'checkbox' formControlName = "agreeToTerms" />
+        I agree to the terms and Conditions
+        </label>
+        <div *ngIf = "form.controls['agreeToTerms'].invalid && form.controls['agreeToTerms'].touched">
+            <small class = "error" *ngIf = "form.controls['agreeToTerms'].errors?.['required']">Agree to the terms and Conditions</small>
+        </div>
+    </div>
+    
+    <button type ="submit" [disabled] = "form.invalid " class = "button"> Submit</button>
+</form>

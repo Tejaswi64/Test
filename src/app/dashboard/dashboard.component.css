@@ -1,0 +1,210 @@
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Raleway, sans-serif;
+}
+
+body {
+  background: linear-gradient(90deg, #C7C5F4, #776BCC);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.screen {
+  background: linear-gradient(90deg, #5D54A4, #7C78B8);
+  position: relative;
+  height: 600px;
+  width: 500px;
+  border-radius: 12px; /* Add border-radius for smooth corners */
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2); /* Slightly softer shadow */
+}
+
+.screen__content {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+  padding: 30px; /* Increased padding for more space */
+  color: #fff;
+}
+
+.dashboard__header {
+  text-align: center;
+  margin-bottom: 20px; /* Reduced margin for a tighter look */
+}
+
+.dashboard__actions {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  margin-bottom: 20px; 
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 15px; /* Increased gap for better separation */
+}
+
+.button {
+  background: #fff;
+  font-size: 15px; /* Slightly larger font size */
+  padding: 15px 25px; /* Added more padding */
+  border-radius: 30px; /* More rounded button corners */
+  border: none; /* Remove border for cleaner look */
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #4C489D;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s; /* Added transform for hover effect */
+  width: 220px; /* Increased button width */
+}
+
+.button:hover {
+  background-color: #e2e2e2; /* Change background on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px; /* Reduced footer margin */
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-input {
+  width: 80%; 
+  padding: 10px;
+  border-radius: 30px; /* Round search input */
+  border: 1px solid #D4D3E8;
+  font-size: 14px;
+  color: #4C489D;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  border-color: #6A679E;
+  outline: none;
+}
+
+.user-list {
+  margin-top: 20px;
+}
+
+.user-list ul {
+  list-style-type: none; 
+  padding: 0;
+}
+
+.user-list li {
+  color: #fff; 
+  margin: 5px 0;
+}
+
+/* Modal Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure modal is above other elements */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  padding: 30px; /* More padding for better space */
+  border-radius: 12px; /* Round modal corners */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  width: 400px; /* Adjust width as needed */
+  max-width: 90%; /* Responsive */
+}
+
+/* Close Button */
+.close {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  color: #777;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px; /* Increased padding for inputs */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Slightly rounded corners for inputs */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+/* Input Focus State */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+  border-color: #6A679E;
+  outline: none;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  background-color: #5D54A4;
+  margin-top: 20px;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px; /* Slightly rounded corners for submit button */
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s; /* Added transform */
+}
+
+/* Submit Button Hover State */
+button[type="submit"]:hover {
+  background-color: #7C78B8;
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Message Styles */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.success-message {
+  color: green;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}

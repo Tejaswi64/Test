@@ -1,0 +1,24 @@
+
+<div class="container">
+    <div class="screen">
+      <div class="screen__content">
+        <div class="admin__header">
+          <h2>All Employees</h2>
+        </div>
+  
+        <div class="admin__employees">
+          <ul>
+            <li *ngFor="let user of users" (click)="viewUserInfo(user)">
+              {{ user.name }}
+            </li>
+          </ul>
+        </div>
+  
+        <div class="footer">
+          <button class="button btn-logout" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
